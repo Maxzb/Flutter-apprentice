@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:yummy/components/color_button.dart';
+import 'package:yummy/components/theme_button.dart';
 import 'package:yummy/constants.dart';
 
 void main() => runApp(const Yummy());
@@ -13,9 +15,11 @@ class Yummy extends StatefulWidget {
 }
 
 class _YummyState extends State<Yummy> {
+  ThemeMode themeMode = ThemeMode.light;
+  ColorSelection colorSelected = ColorSelection.pink;
+
   void changeThemeMode(bool useLightMode) {
     setState(() {
-      // 1
       themeMode = useLightMode
           ? ThemeMode.light //
           : ThemeMode.dark;
@@ -24,21 +28,17 @@ class _YummyState extends State<Yummy> {
 
   void changeColor(int value) {
     setState(() {
-      // 2
       colorSelected = ColorSelection.values[value];
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    const appTitle = 'Yummy';
-    ThemeMode themeMode = ThemeMode.dark; // Manual theme toggle
-    ColorSelection colorSelected = ColorSelection.deepOrange;
+    const appTitle = 'Discs';
     //3
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: appTitle,
-      //debugShowCheckedModeBanner: false, // Uncomment to remove Debug banner
       themeMode: themeMode,
       theme: ThemeData(
         colorSchemeSeed: colorSelected.color,
@@ -55,23 +55,26 @@ class _YummyState extends State<Yummy> {
       home: Scaffold(
         appBar: AppBar(
           // backgroundColor: Colors.blueAccent,
-          foregroundColor: Colors.white,
-          // TODO: Add action buttons
+          // foregroundColor: Colors.amberAccent,
           elevation: 4.0,
-          title: const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                appTitle,
-                // style: TextStyle(fontSize: 24.0),
-                textAlign: TextAlign.center,
-              ),
-            ],
+          actions: [
+            ThemeButton(
+              changeThemeMode: changeThemeMode,
+            ),
+            ColorButton(
+              changeColor: changeColor,
+              colorSelected: colorSelected,
+            ),
+          ],
+          title: const Text(
+            appTitle,
+            // style: TextStyle(fontSize: 24.0),
+            textAlign: TextAlign.center,
           ),
         ),
         body: const Center(
           child: Text(
-            'You Hungry?',
+            'You love black metal?',
             // style: TextStyle(fontSize: 30.0),
           ),
         ),
