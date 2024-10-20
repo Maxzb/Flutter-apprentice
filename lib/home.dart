@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'components/models/disc_category.dart';
 import 'components/theme_button.dart';
 import 'components/color_button.dart';
 import 'constants.dart';
+import 'components/category_card.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -23,17 +25,17 @@ class _HomeState extends State<Home> {
   List<NavigationDestination> appBarDestinations = const [
     NavigationDestination(
       icon: Icon(Icons.credit_card),
-      label: 'Category',
+      label: 'Blackgaze',
       selectedIcon: Icon(Icons.credit_card),
     ),
     NavigationDestination(
       icon: Icon(Icons.credit_card),
-      label: 'Post',
+      label: 'True black',
       selectedIcon: Icon(Icons.credit_card),
     ),
     NavigationDestination(
       icon: Icon(Icons.credit_card),
-      label: 'Restaurant',
+      label: 'Raw black',
       selectedIcon: Icon(Icons.credit_card),
     ),
   ];
@@ -41,6 +43,25 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     // TODO: Define pages
+    final pages = [
+      // TODO: Replace with Category Card
+      // Container(color: Colors.amberAccent),
+      // 1
+      Center(
+        // 2
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 300),
+          // 3
+          // child: const Text('test13'),
+          child: CategoryCard(category: categories[0]),
+        ),
+      ),
+      // TODO: Replace with Post Card
+      Container(color: Colors.lightGreenAccent),
+      // TODO: Replace with Restaurant Landscape Card
+      Container(color: Colors.blueGrey)
+    ];
+
     return Scaffold(
       appBar: AppBar(
         elevation: 4.0,
@@ -56,13 +77,23 @@ class _HomeState extends State<Home> {
         ],
       ),
       // TODO: Switch between pages
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Text(
-          'You love black metal?',
-          style: Theme.of(context).textTheme.headlineSmall,
-        ),
+      body: IndexedStack(
+        index: tab,
+        children: pages,
       ),
+      // Old body code
+      // body: Padding(
+      //   padding: const EdgeInsets.all(16.0),
+      //   child: Column(
+      //     children: [
+      //       Text(
+      //         'You love black metal?',
+      //         style: Theme.of(context).textTheme.headlineSmall,
+      //       ),
+      //       const SizedBox(width: 100, height: 100, child: Placeholder()),
+      //     ],
+      //   ),
+      // ),
       // 1
       bottomNavigationBar: NavigationBar(
         // 2

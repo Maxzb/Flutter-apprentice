@@ -15,7 +15,7 @@ class Yummy extends StatefulWidget {
 }
 
 class _YummyState extends State<Yummy> {
-  ThemeMode themeMode = ThemeMode.light;
+  ThemeMode themeMode = ThemeMode.dark;
   ColorSelection colorSelected = ColorSelection.pink;
 
   void changeThemeMode(bool useLightMode) {
