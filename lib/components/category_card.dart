@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'models/disc_category.dart';
+import '../models/disc_category.dart';
 
 class CategoryCard extends StatelessWidget {
   final DiscCategory category;

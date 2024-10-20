@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'components/models/disc_category.dart';
+import 'models/disc_category.dart';
 import 'components/theme_button.dart';
 import 'components/color_button.dart';
 import 'constants.dart';
 import 'components/category_card.dart';
+import 'components/post_card.dart';
+import 'models/post.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -30,7 +32,7 @@ class _HomeState extends State<Home> {
     ),
     NavigationDestination(
       icon: Icon(Icons.credit_card),
-      label: 'True black',
+      label: 'Posts',
       selectedIcon: Icon(Icons.credit_card),
     ),
     NavigationDestination(
@@ -56,7 +58,12 @@ class _HomeState extends State<Home> {
           child: CategoryCard(category: categories[0]),
         ),
       ),
-      // TODO: Replace with Post Card
+      Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: PostCard(post: posts[0]),
+        ),
+      ),
       Container(color: Colors.lightGreenAccent),
       // TODO: Replace with Restaurant Landscape Card
       Container(color: Colors.blueGrey)
