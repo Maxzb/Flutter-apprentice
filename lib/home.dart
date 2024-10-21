@@ -6,6 +6,8 @@ import 'constants.dart';
 import 'components/category_card.dart';
 import 'components/post_card.dart';
 import 'models/post.dart';
+import 'components/place_landscape_card.dart';
+import 'models/place.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -64,8 +66,17 @@ class _HomeState extends State<Home> {
           child: PostCard(post: posts[0]),
         ),
       ),
-      Container(color: Colors.lightGreenAccent),
-      // TODO: Replace with Restaurant Landscape Card
+      // 1
+      Center(
+        //2
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 400),
+          // 3
+          child: PlaceLandscapeCard(
+            place: places[0],
+          ),
+        ),
+      ),
       Container(color: Colors.blueGrey)
     ];
 
