@@ -8,6 +8,7 @@ import 'components/post_card.dart';
 import 'models/post.dart';
 import 'components/place_landscape_card.dart';
 import 'models/place.dart';
+import 'screens/explore_page.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -51,15 +52,16 @@ class _HomeState extends State<Home> {
       // TODO: Replace with Category Card
       // Container(color: Colors.amberAccent),
       // 1
-      Center(
-        // 2
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 300),
-          // 3
-          // child: const Text('test13'),
-          child: CategoryCard(category: categories[0]),
-        ),
-      ),
+      ExplorePage(),
+      // Center(
+      //   // 2
+      //   child: ConstrainedBox(
+      //     constraints: const BoxConstraints(maxWidth: 300),
+      //     // 3
+      //     // child: const Text('test13'),
+      //     child: CategoryCard(category: categories[0]),
+      //   ),
+      // ),
       Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

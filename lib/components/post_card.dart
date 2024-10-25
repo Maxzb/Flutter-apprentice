@@ -7,6 +7,7 @@ class PostCard extends StatelessWidget {
     super.key,
     required this.post,
   });
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme.apply(
