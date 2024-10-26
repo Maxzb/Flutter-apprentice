@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../api/mock_yummy_service.dart';
 import '../components/category_section.dart';
 import '../components/places_section.dart';
+import '../components/post_section.dart';
 
 class ExplorePage extends StatelessWidget {
   // 1
@@ -33,11 +34,7 @@ class ExplorePage extends StatelessWidget {
             children: [
               PlaceSection(places: places),
               CategorySection(categories: categories),
-              Container(
-                height: 300,
-                color: Colors.green,
-              ),
-              // TODO: Add PostSection
+              PostSection(posts: posts),
               Container(
                 height: 300,
                 color: Colors.orange,
