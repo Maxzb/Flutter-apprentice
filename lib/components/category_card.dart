@@ -58,7 +58,7 @@ class CategoryCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        'Deathcrush (${category.year})',
+                        category.year.toString(),
                         style: textTheme.bodySmall,
                         textAlign: TextAlign.start,
                       ),
@@ -67,7 +67,7 @@ class CategoryCard extends StatelessWidget {
                   const SizedBox(
                     height: 8.0,
                   ),
-                  Text(category.description, style: textTheme.bodySmall),
+                  // Text(category.description, style: textTheme.bodySmall),
                 ],
               )),
         ],

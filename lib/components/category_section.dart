@@ -1,65 +1,53 @@
 import 'package:flutter/material.dart';
+import '../models/disc_category.dart';
+import 'category_card.dart';
+
 // 1
-import '../components/place_landscape_card.dart';
-import '../models/place.dart';
+class CategorySection extends StatelessWidget {
+  final List<DiscCategory> categories;
 
-class PlaceSection extends StatelessWidget {
-  // 2
-  final List<Place> places;
-
-  const PlaceSection({
+  const CategorySection({
     super.key,
-    required this.places,
+    required this.categories,
   });
 
   @override
   Widget build(BuildContext context) {
-    // 3
+    // 2
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      // 4
+      // 3
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // 4
           const Padding(
             padding: EdgeInsets.only(left: 16.0, bottom: 8.0),
-            // 5
             child: Text(
-              'Food near me',
+              'Categories',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          // 1
+          // 5
           SizedBox(
-            height: 230,
-            // 2
+            height: 275,
             child: ListView.builder(
-              // 3
               scrollDirection: Axis.horizontal,
-              // 4
-              itemCount: places.length,
-              // 5
+              itemCount: categories.length,
               itemBuilder: (context, index) {
                 // 6
                 return SizedBox(
-                  width: 300,
-                  // 7
-                  child: PlaceLandscapeCard(
-                    place: places[index],
+                  width: 200,
+                  child: CategoryCard(
+                    category: categories[index],
                   ),
                 );
               },
             ),
           ),
-          // 6
-          // Container(
-          //   height: 400,
-          //   // TODO: Add ListView Here
-          //   color: Colors.grey,
-          // ),
         ],
       ),
     );

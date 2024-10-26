@@ -3,6 +3,7 @@ import '../models/place.dart';
 
 class PlaceLandscapeCard extends StatefulWidget {
   final Place place;
+
   const PlaceLandscapeCard({
     super.key,
     required this.place,

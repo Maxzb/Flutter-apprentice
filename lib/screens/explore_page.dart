@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../api/mock_yummy_service.dart';
+import '../components/category_section.dart';
 import '../components/places_section.dart';
 
 class ExplorePage extends StatelessWidget {
@@ -18,17 +19,30 @@ class ExplorePage extends StatelessWidget {
         // 4
         if (snapshot.connectionState == ConnectionState.done) {
           // 5
-          final restaurants = snapshot.data?.places ?? [];
+          final places = snapshot.data?.places ?? [];
           final categories = snapshot.data?.categories ?? [];
           final posts = snapshot.data?.friendPosts ?? [];
 
-          // TODO: Wrap in a ListView
-          return PlaceSection(places: restaurants);
-
-          return const Center(
-            child: SizedBox(
-              child: Text('Show RestaurantSection'),
-            ),
+          // 1
+          return ListView(
+            // 2
+            shrinkWrap: true,
+            // 3
+            scrollDirection: Axis.vertical,
+            // 4
+            children: [
+              PlaceSection(places: places),
+              CategorySection(categories: categories),
+              Container(
+                height: 300,
+                color: Colors.green,
+              ),
+              // TODO: Add PostSection
+              Container(
+                height: 300,
+                color: Colors.orange,
+              ),
+            ],
           );
         } else {
           // 6
@@ -38,11 +52,11 @@ class ExplorePage extends StatelessWidget {
         }
       },
     );
-    return const Center(
-      child: Text(
-        'Explore Page Setup',
-        style: TextStyle(fontSize: 32.0),
-      ),
-    );
+    // return const Center(
+    //   child: Text(
+    //     'Explore Page Setup',
+    //     style: TextStyle(fontSize: 32.0),
+    //   ),
+    // );
   }
 }
