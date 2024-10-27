@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/place.dart';
+import '../screens/place_page.dart';
 
 class PlaceLandscapeCard extends StatefulWidget {
   final Place place;
@@ -21,6 +22,7 @@ class _PlaceLandscapeCardState extends State<PlaceLandscapeCard> {
     final textTheme = Theme.of(context)
         .textTheme
         .apply(displayColor: Theme.of(context).colorScheme.onSurface);
+
     return Card(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -68,7 +70,17 @@ class _PlaceLandscapeCardState extends State<PlaceLandscapeCard> {
               style: textTheme.bodySmall,
             ),
             onTap: () {
-              // ignore: avoid_print
+              // Переходим на страницу PlacePage
+              Navigator.push(
+                // 2
+                context,
+                // 3
+                MaterialPageRoute(
+                    // 4
+                    builder: (context) => PlacePage(
+                          place: widget.place,
+                        )),
+              );
             },
           ),
         ],

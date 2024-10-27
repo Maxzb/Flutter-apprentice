@@ -31,6 +31,7 @@ class Place {
   }
 }
 
+// MOCK DATA
 List<Place> places = [
   Place(
       '0',
