@@ -5,8 +5,8 @@ import '../components/places_section.dart';
 import '../components/post_section.dart';
 
 class ExplorePage extends StatelessWidget {
-  // 1
   final mockService = MockYummyService();
+
   ExplorePage({super.key});
 
   @override

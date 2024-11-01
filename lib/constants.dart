@@ -14,10 +14,8 @@ enum ColorSelection {
   pink('Pink', Colors.pink);
 
   // 2
-  const ColorSelection(
-    this.label,
-    this.color,
-  );
+  const ColorSelection(this.label, this.color);
+
   final String label;
   final Color color;
 }

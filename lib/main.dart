@@ -15,14 +15,12 @@ class Yummy extends StatefulWidget {
 }
 
 class _YummyState extends State<Yummy> {
-  ThemeMode themeMode = ThemeMode.dark;
-  ColorSelection colorSelected = ColorSelection.pink;
+  ThemeMode themeMode = ThemeMode.light;
+  ColorSelection colorSelected = ColorSelection.teal;
 
   void changeThemeMode(bool useLightMode) {
     setState(() {
-      themeMode = useLightMode
-          ? ThemeMode.light //
-          : ThemeMode.dark;
+      themeMode = useLightMode ? ThemeMode.light : ThemeMode.dark;
     });
   }
 
@@ -34,7 +32,8 @@ class _YummyState extends State<Yummy> {
 
   @override
   Widget build(BuildContext context) {
-    const appTitle = 'Discs';
+    const appTitle = 'Yummy';
+
     //3
     return MaterialApp(
       debugShowCheckedModeBanner: false,

@@ -17,9 +17,11 @@ class Home extends StatefulWidget {
     required this.changeColor,
     required this.colorSelected,
   });
+
   final void Function(bool useLightMode) changeTheme;
   final void Function(int value) changeColor;
   final ColorSelection colorSelected;
+
   @override
   State<Home> createState() => _HomeState();
 }
