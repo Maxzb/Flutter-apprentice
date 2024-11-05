@@ -35,10 +35,6 @@ class ExplorePage extends StatelessWidget {
               PlaceSection(places: places),
               CategorySection(categories: categories),
               PostSection(posts: posts),
-              Container(
-                height: 300,
-                color: Colors.orange,
-              ),
             ],
           );
         } else {
