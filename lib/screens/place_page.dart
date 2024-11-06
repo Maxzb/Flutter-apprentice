@@ -1,16 +1,20 @@
 // 1
 import 'package:flutter/material.dart';
+import '../components/item_details.dart';
 import '../components/place_item.dart';
+import '../models/cart_manager.dart';
 import '../models/place.dart';
 
 // 2
 class PlacePage extends StatefulWidget {
   final Place place;
+  // final CartManager cartManager;
 
   // 3
   const PlacePage({
     super.key,
     required this.place,
+    // required this.cartManager,
   });
 
   @override
@@ -154,9 +158,7 @@ class _PlacePageState extends State<PlacePage> {
   Widget _buildGridItem(int index) {
     final item = widget.place.items[index];
     return InkWell(
-      onTap: () {
-        // Present Bottom Sheet in the future.
-      },
+      onTap: () => _showBottomSheet(item),
       child: PlaceItem(item: item),
     );
   }
@@ -213,7 +215,32 @@ class _PlacePageState extends State<PlacePage> {
       ),
     );
   }
-  // TODO: Replace build method
+
+  // 1
+  void _showBottomSheet(Item item) {
+    // 2
+    showModalBottomSheet<void>(
+      // 3
+      isScrollControlled: true,
+      // 4
+      context: context,
+      // 5
+      constraints: const BoxConstraints(maxWidth: 480),
+      // 6
+      // TODO: Replace with Item Details Widget
+      // builder: (context) => Container(
+      //   color: const Color.fromARGB(255, 21, 232, 193),
+      //   height: 400,
+      // ),
+      builder: (context) => ItemDetails(
+        item: item,
+        // cartManager: widget.cartManager,
+        quantityUpdated: () {
+          setState(() {});
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

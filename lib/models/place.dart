@@ -23,8 +23,17 @@ class Place {
   double rating;
   List<Item> items;
 
-  Place(this.id, this.name, this.address, this.attributes, this.imageUrl,
-      this.imageCredits, this.distance, this.rating, this.items);
+  Place(
+    this.id,
+    this.name,
+    this.address,
+    this.attributes,
+    this.imageUrl,
+    this.imageCredits,
+    this.distance,
+    this.rating,
+    this.items,
+  );
 
   String getRatingAndDistance() {
     return '''Rating: ${rating.toStringAsFixed(1)} ★ | Distance: ${distance.toStringAsFixed(1)} miles''';
