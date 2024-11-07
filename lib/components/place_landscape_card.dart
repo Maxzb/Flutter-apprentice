@@ -4,10 +4,12 @@ import '../screens/place_page.dart';
 
 class PlaceLandscapeCard extends StatefulWidget {
   final Place place;
+  final Function() onTap;
 
   const PlaceLandscapeCard({
     super.key,
     required this.place,
+    required this.onTap,
   });
 
   @override
@@ -69,19 +71,7 @@ class _PlaceLandscapeCardState extends State<PlaceLandscapeCard> {
               maxLines: 1,
               style: textTheme.bodySmall,
             ),
-            onTap: () {
-              // Переходим на страницу PlacePage
-              Navigator.push(
-                // 2
-                context,
-                // 3
-                MaterialPageRoute(
-                    // 4
-                    builder: (context) => PlacePage(
-                          place: widget.place,
-                        )),
-              );
-            },
+            onTap: widget.onTap,
           ),
         ],
       ),

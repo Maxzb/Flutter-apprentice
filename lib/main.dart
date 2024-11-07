@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yummy/constants.dart';
 
 import 'home.dart';
+import 'models/cart_manager.dart';
 
 void main() => runApp(const Yummy());
 
@@ -17,6 +18,8 @@ class Yummy extends StatefulWidget {
 class _YummyState extends State<Yummy> {
   ThemeMode themeMode = ThemeMode.light;
   ColorSelection colorSelected = ColorSelection.teal;
+
+  final CartManager _cartManager = CartManager();
 
   void changeThemeMode(bool useLightMode) {
     setState(() {
@@ -55,6 +58,7 @@ class _YummyState extends State<Yummy> {
         changeTheme: changeThemeMode,
         changeColor: changeColor,
         colorSelected: colorSelected,
+        cartManager: _cartManager,
       ),
     );
   }

@@ -8,13 +8,13 @@ import '../models/place.dart';
 // 2
 class PlacePage extends StatefulWidget {
   final Place place;
-  // final CartManager cartManager;
+  final CartManager cartManager;
 
   // 3
   const PlacePage({
     super.key,
     required this.place,
-    // required this.cartManager,
+    required this.cartManager,
   });
 
   @override
@@ -218,23 +218,13 @@ class _PlacePageState extends State<PlacePage> {
 
   // 1
   void _showBottomSheet(Item item) {
-    // 2
     showModalBottomSheet<void>(
-      // 3
       isScrollControlled: true,
-      // 4
       context: context,
-      // 5
       constraints: const BoxConstraints(maxWidth: 480),
-      // 6
-      // TODO: Replace with Item Details Widget
-      // builder: (context) => Container(
-      //   color: const Color.fromARGB(255, 21, 232, 193),
-      //   height: 400,
-      // ),
       builder: (context) => ItemDetails(
         item: item,
-        // cartManager: widget.cartManager,
+        cartManager: widget.cartManager,
         quantityUpdated: () {
           setState(() {});
         },

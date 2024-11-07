@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'models/cart_manager.dart';
 import 'models/disc_category.dart';
 import 'components/theme_button.dart';
 import 'components/color_button.dart';
@@ -16,8 +17,10 @@ class Home extends StatefulWidget {
     required this.changeTheme,
     required this.changeColor,
     required this.colorSelected,
+    required this.cartManager,
   });
 
+  final CartManager cartManager;
   final void Function(bool useLightMode) changeTheme;
   final void Function(int value) changeColor;
   final ColorSelection colorSelected;
@@ -54,7 +57,10 @@ class _HomeState extends State<Home> {
       // TODO: Replace with Category Card
       // Container(color: Colors.amberAccent),
       // 1
-      ExplorePage(),
+      ExplorePage(
+        cartManager: widget.cartManager,
+        // orderManager: widget.ordersManager,
+      ),
       // Center(
       //   // 2
       //   child: ConstrainedBox(
@@ -71,16 +77,16 @@ class _HomeState extends State<Home> {
         ),
       ),
       // 1
-      Center(
-        //2
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 400),
-          // 3
-          child: PlaceLandscapeCard(
-            place: places[0],
-          ),
-        ),
-      ),
+      // Center(
+      //   //2
+      //   child: ConstrainedBox(
+      //     constraints: const BoxConstraints(maxWidth: 400),
+      //     // 3
+      //     child: PlaceLandscapeCard(
+      //       place: places[0],
+      //     ),
+      //   ),
+      // ),
       Container(color: Colors.blueGrey)
     ];
 

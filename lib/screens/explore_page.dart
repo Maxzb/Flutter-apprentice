@@ -3,11 +3,13 @@ import '../api/mock_yummy_service.dart';
 import '../components/category_section.dart';
 import '../components/places_section.dart';
 import '../components/post_section.dart';
+import '../models/cart_manager.dart';
 
 class ExplorePage extends StatelessWidget {
   final mockService = MockYummyService();
+  final CartManager cartManager;
 
-  ExplorePage({super.key});
+  ExplorePage({super.key, required this.cartManager});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,10 @@ class ExplorePage extends StatelessWidget {
             scrollDirection: Axis.vertical,
             // 4
             children: [
-              PlaceSection(places: places),
+              PlaceSection(
+                places: places,
+                cartManager: cartManager,
+              ),
               CategorySection(categories: categories),
               PostSection(posts: posts),
             ],

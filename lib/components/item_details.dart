@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:yummy/components/cart_control.dart';
 import '../models/cart_manager.dart';
 import '../models/place.dart';
+import 'package:uuid/uuid.dart';
+import 'cart_control.dart';
+import '../models/cart_manager.dart';
 
 class ItemDetails extends StatefulWidget {
   final Item item;
-  // final CartManager cartManager;
+  final CartManager cartManager;
   final void Function() quantityUpdated;
 
   const ItemDetails({
     super.key,
     required this.item,
-    // required this.cartManager,
+    required this.cartManager,
     required this.quantityUpdated,
   });
 
@@ -48,7 +52,7 @@ class _ItemDetailsState extends State<ItemDetails> {
               const SizedBox(height: 16.0),
               _itemImage(widget.item.imageUrl),
               const SizedBox(height: 16.0),
-              // TODO: Add Cart Control
+              _addToCartControl(widget.item),
             ],
           ),
         ],
@@ -84,5 +88,24 @@ class _ItemDetailsState extends State<ItemDetails> {
       ),
     );
   }
-  // TODO: Create Cart Control
+
+  Widget _addToCartControl(Item item) {
+    return CartControl(
+      addToCart: (number) {
+        const uuid = Uuid();
+        final uniqueId = uuid.v4();
+        final cartItem = CartItem(
+          id: uniqueId,
+          name: item.name,
+          price: item.price,
+          quantity: number,
+        );
+        setState(() {
+          widget.cartManager.addItem(cartItem);
+          widget.quantityUpdated();
+        });
+        Navigator.pop(context);
+      },
+    );
+  }
 }
