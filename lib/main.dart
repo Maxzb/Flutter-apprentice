@@ -3,6 +3,7 @@ import 'package:yummy/constants.dart';
 
 import 'home.dart';
 import 'models/cart_manager.dart';
+import 'models/order_manager.dart';
 
 void main() => runApp(const Yummy());
 
@@ -20,6 +21,7 @@ class _YummyState extends State<Yummy> {
   ColorSelection colorSelected = ColorSelection.teal;
 
   final CartManager _cartManager = CartManager();
+  final OrderManager _orderManager = OrderManager();
 
   void changeThemeMode(bool useLightMode) {
     setState(() {
@@ -59,6 +61,7 @@ class _YummyState extends State<Yummy> {
         changeColor: changeColor,
         colorSelected: colorSelected,
         cartManager: _cartManager,
+        ordersManager: _orderManager,
       ),
     );
   }

@@ -4,12 +4,15 @@ import '../components/category_section.dart';
 import '../components/places_section.dart';
 import '../components/post_section.dart';
 import '../models/cart_manager.dart';
+import '../models/order_manager.dart';
 
 class ExplorePage extends StatelessWidget {
   final mockService = MockYummyService();
   final CartManager cartManager;
+  final OrderManager orderManager;
 
-  ExplorePage({super.key, required this.cartManager});
+  ExplorePage(
+      {super.key, required this.cartManager, required this.orderManager});
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +40,7 @@ class ExplorePage extends StatelessWidget {
               PlaceSection(
                 places: places,
                 cartManager: cartManager,
+                orderManager: orderManager,
               ),
               CategorySection(categories: categories),
               PostSection(posts: posts),

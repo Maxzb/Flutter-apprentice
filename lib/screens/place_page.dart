@@ -4,17 +4,21 @@ import '../components/item_details.dart';
 import '../components/place_item.dart';
 import '../models/cart_manager.dart';
 import '../models/place.dart';
+import '../models/order_manager.dart';
+import 'checkout_page.dart';
 
 // 2
 class PlacePage extends StatefulWidget {
   final Place place;
   final CartManager cartManager;
+  final OrderManager ordersManager;
 
   // 3
   const PlacePage({
     super.key,
     required this.place,
     required this.cartManager,
+    required this.ordersManager,
   });
 
   @override
@@ -24,9 +28,10 @@ class PlacePage extends StatefulWidget {
 // 4
 class _PlacePageState extends State<PlacePage> {
   static const desktopThreshold = 700;
-
   static const double largeScreenPercentage = 0.9;
   static const double maxWidth = 1000;
+  static const double drawerWidth = 375.0;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   double _calculateConstrainedWidth(double screenWidth) {
     return (screenWidth > desktopThreshold
@@ -232,11 +237,49 @@ class _PlacePageState extends State<PlacePage> {
     );
   }
 
+  Widget _buildEndDrawer() {
+    return SizedBox(
+      width: drawerWidth,
+      child: Drawer(
+        // 2
+        child: CheckoutPage(
+          // 3
+          cartManager: widget.cartManager,
+          // 4
+          didUpdate: () {
+            setState(() {});
+          },
+          // 5
+          onSubmit: (order) {
+            widget.ordersManager.addOrder(order);
+            Navigator.popUntil(context, (route) => route.isFirst);
+          },
+        ),
+      ),
+    );
+  }
+
+  void openDrawer() {
+    scaffoldKey.currentState!.openEndDrawer();
+  }
+
+  Widget _buildFloatingActionButton() {
+    return FloatingActionButton.extended(
+      onPressed: openDrawer,
+      tooltip: 'Cart',
+      icon: const Icon(Icons.shopping_cart),
+      label: Text('${widget.cartManager.items.length} Items in cart'),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final constrainedWidth = _calculateConstrainedWidth(screenWidth);
     return Scaffold(
+      key: scaffoldKey,
+      endDrawer: _buildEndDrawer(),
+      floatingActionButton: _buildFloatingActionButton(),
       body: Center(
         child: SizedBox(
           width: constrainedWidth,

@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 // 1
 import '../components/place_landscape_card.dart';
 import '../models/cart_manager.dart';
+import '../models/order_manager.dart';
 import '../models/place.dart';
 import '../screens/place_page.dart';
 
 class PlaceSection extends StatelessWidget {
   final List<Place> places;
   final CartManager cartManager;
-  // final OrderManager orderManager;
+  final OrderManager orderManager;
 
   const PlaceSection({
     super.key,
     required this.places,
     required this.cartManager,
+    required this.orderManager,
   });
 
   @override
@@ -52,7 +54,7 @@ class PlaceSection extends StatelessWidget {
                           builder: (context) => PlacePage(
                             place: places[index],
                             cartManager: cartManager,
-                            // ordersManager: orderManager,
+                            ordersManager: orderManager,
                           ),
                         ),
                       );

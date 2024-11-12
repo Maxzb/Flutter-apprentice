@@ -6,6 +6,7 @@ import 'components/color_button.dart';
 import 'constants.dart';
 import 'components/category_card.dart';
 import 'components/post_card.dart';
+import 'models/order_manager.dart';
 import 'models/post.dart';
 import 'components/place_landscape_card.dart';
 import 'models/place.dart';
@@ -18,9 +19,11 @@ class Home extends StatefulWidget {
     required this.changeColor,
     required this.colorSelected,
     required this.cartManager,
+    required this.ordersManager,
   });
 
   final CartManager cartManager;
+  final OrderManager ordersManager;
   final void Function(bool useLightMode) changeTheme;
   final void Function(int value) changeColor;
   final ColorSelection colorSelected;
@@ -59,7 +62,7 @@ class _HomeState extends State<Home> {
       // 1
       ExplorePage(
         cartManager: widget.cartManager,
-        // orderManager: widget.ordersManager,
+        orderManager: widget.ordersManager,
       ),
       // Center(
       //   // 2
