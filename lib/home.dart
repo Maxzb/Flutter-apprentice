@@ -11,6 +11,7 @@ import 'models/post.dart';
 import 'components/place_landscape_card.dart';
 import 'models/place.dart';
 import 'screens/explore_page.dart';
+import 'screens/myorders_page.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -38,12 +39,12 @@ class _HomeState extends State<Home> {
   List<NavigationDestination> appBarDestinations = const [
     NavigationDestination(
       icon: Icon(Icons.credit_card),
-      label: 'Blackgaze',
+      label: 'Home',
       selectedIcon: Icon(Icons.credit_card),
     ),
     NavigationDestination(
       icon: Icon(Icons.credit_card),
-      label: 'Posts',
+      label: 'Orders',
       selectedIcon: Icon(Icons.credit_card),
     ),
     NavigationDestination(
@@ -64,15 +65,7 @@ class _HomeState extends State<Home> {
         cartManager: widget.cartManager,
         orderManager: widget.ordersManager,
       ),
-      // Center(
-      //   // 2
-      //   child: ConstrainedBox(
-      //     constraints: const BoxConstraints(maxWidth: 300),
-      //     // 3
-      //     // child: const Text('test13'),
-      //     child: CategoryCard(category: categories[0]),
-      //   ),
-      // ),
+      MyOrdersPage(orderManager: widget.ordersManager),
       Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

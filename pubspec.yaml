@@ -67,6 +67,7 @@ flutter:
     - assets/categories/
     - assets/profile_pics/
     - assets/places/
+    - assets/food/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
