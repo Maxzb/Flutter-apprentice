@@ -91,17 +91,16 @@ class _HomeState extends State<Home> {
       ),
       // TODO: Switch between pages
       body: IndexedStack(
-        index: tab,
+        index: widget.tab,
         children: pages,
       ),
       bottomNavigationBar: NavigationBar(
-        // selectedIndex: widget.tab, для go_router (не работает!)
-        selectedIndex: tab,
+        selectedIndex: widget.tab,
         onDestinationSelected: (index) {
-          // context.go('/$index'); для go_router (не работает!)
-          setState(() {
-            tab = index;
-          });
+          context.go('/$index');
+          // setState(() {
+          //   tab = index;
+          // });
         },
         destinations: appBarDestinations,
       ),
