@@ -44,54 +44,63 @@ class Place {
 List<Place> places = [
   Place(
       '0',
-      'Helvete',
-      '676 Cedar St, Oslo, PA 19113',
-      'Death, Black, Doom metal',
-      'assets/places/helvete-shop.jpg',
+      'The Blue Prawn',
+      '676 Cedar St, New York, PA 19113',
+      'Seafood, Healthy, Organic',
+      'assets/places/TheBluePrawn.webp',
       'https://images.unsplash.com/photo-1572015124294-488267231e35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1548&q=80',
       2.1,
-      4.5, [
-    Item(
-      name: 'Ocean Bounty Salad',
-      description:
-          '''A fresh mix of organic greens, cherry tomatoes, avocados, topped with succulent prawns and a lemon vinaigrette.''',
-      price: 14.99,
-      imageUrl:
-          'https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80',
-    ),
-    Item(
-      name: 'Grilled Prawn Tacos',
-      description:
-          '''Soft organic tortillas filled with seasoned grilled prawns, fresh cabbage slaw, and a zesty avocado salsa.''',
-      price: 16.99,
-      imageUrl:
-          'https://images.unsplash.com/photo-1624300629298-e9de39c13be5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-    ),
-    Item(
-      name: 'Blue Prawn Risotto',
-      description:
-          '''Creamy organic Arborio rice cooked with white wine and garlic, enriched with blue prawns and sprinkled with parmesan.''',
-      price: 19.99,
-      imageUrl:
-          'https://images.unsplash.com/photo-1609770424775-39ec362f2d94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-    ),
-    Item(
-      name: 'Seaweed-Wrapped Salmon',
-      description:
-          '''Organic salmon fillet wrapped in seaweed, steamed to perfection, served with quinoa and a side of roasted veggies.''',
-      price: 21.99,
-      imageUrl:
-          'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    ),
-    Item(
-      name: 'Lobster & Prawn Soup',
-      description:
-          '''A rich and hearty soup made from fresh organic lobster and prawns, complemented with seasonal herbs and a touch of coconut milk.''',
-      price: 17.99,
-      imageUrl:
-          'https://images.unsplash.com/photo-1533745807-618e4bd071f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
-    ),
-  ]),
+      4.5,
+      // '0',
+      // 'Helvete',
+      // '676 Cedar St, Oslo, PA 19113',
+      // 'Death, Black, Doom metal',
+      // 'assets/places/helvete-shop.jpg',
+      // 'https://images.unsplash.com/photo-1572015124294-488267231e35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1548&q=80',
+      // 2.1,
+      // 4.5,
+      [
+        Item(
+          name: 'Ocean Bounty Salad',
+          description:
+              '''A fresh mix of organic greens, cherry tomatoes, avocados, topped with succulent prawns and a lemon vinaigrette.''',
+          price: 14.99,
+          imageUrl:
+              'https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80',
+        ),
+        Item(
+          name: 'Grilled Prawn Tacos',
+          description:
+              '''Soft organic tortillas filled with seasoned grilled prawns, fresh cabbage slaw, and a zesty avocado salsa.''',
+          price: 16.99,
+          imageUrl:
+              'https://images.unsplash.com/photo-1624300629298-e9de39c13be5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+        ),
+        Item(
+          name: 'Blue Prawn Risotto',
+          description:
+              '''Creamy organic Arborio rice cooked with white wine and garlic, enriched with blue prawns and sprinkled with parmesan.''',
+          price: 19.99,
+          imageUrl:
+              'https://images.unsplash.com/photo-1609770424775-39ec362f2d94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
+        ),
+        Item(
+          name: 'Seaweed-Wrapped Salmon',
+          description:
+              '''Organic salmon fillet wrapped in seaweed, steamed to perfection, served with quinoa and a side of roasted veggies.''',
+          price: 21.99,
+          imageUrl:
+              'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+        ),
+        Item(
+          name: 'Lobster & Prawn Soup',
+          description:
+              '''A rich and hearty soup made from fresh organic lobster and prawns, complemented with seasonal herbs and a touch of coconut milk.''',
+          price: 17.99,
+          imageUrl:
+              'https://images.unsplash.com/photo-1533745807-618e4bd071f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
+        ),
+      ]),
   Place(
       '1',
       "Mama Rosa's Pizza",

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:yummy/models/auth.dart';
 import 'models/cart_manager.dart';
-import 'models/disc_category.dart';
 import 'components/theme_button.dart';
 import 'components/color_button.dart';
 import 'constants.dart';
-import 'components/category_card.dart';
 import 'components/post_card.dart';
 import 'models/order_manager.dart';
 import 'models/post.dart';
-import 'components/place_landscape_card.dart';
-import 'models/place.dart';
 import 'screens/explore_page.dart';
 import 'screens/myorders_page.dart';
 
@@ -21,6 +18,8 @@ class Home extends StatefulWidget {
     required this.colorSelected,
     required this.cartManager,
     required this.ordersManager,
+    required YummyAuth auth,
+    required int tab,
   });
 
   final CartManager cartManager;

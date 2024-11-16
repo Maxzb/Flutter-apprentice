@@ -3,8 +3,6 @@ import 'package:yummy/components/cart_control.dart';
 import '../models/cart_manager.dart';
 import '../models/place.dart';
 import 'package:uuid/uuid.dart';
-import 'cart_control.dart';
-import '../models/cart_manager.dart';
 
 class ItemDetails extends StatefulWidget {
   final Item item;

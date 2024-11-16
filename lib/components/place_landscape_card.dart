@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../models/place.dart';
-import '../screens/place_page.dart';
 
 class PlaceLandscapeCard extends StatefulWidget {
   final Place place;
