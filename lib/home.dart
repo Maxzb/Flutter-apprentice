@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:yummy/models/auth.dart';
 import 'models/cart_manager.dart';
 import 'components/theme_button.dart';
@@ -13,20 +14,22 @@ import 'screens/myorders_page.dart';
 class Home extends StatefulWidget {
   const Home({
     super.key,
+    required this.auth,
+    required this.cartManager,
+    required this.ordersManager,
     required this.changeTheme,
     required this.changeColor,
     required this.colorSelected,
-    required this.cartManager,
-    required this.ordersManager,
-    required YummyAuth auth,
-    required int tab,
+    required this.tab,
   });
 
+  final YummyAuth auth;
+  final int tab;
   final CartManager cartManager;
   final OrderManager ordersManager;
+  final ColorSelection colorSelected;
   final void Function(bool useLightMode) changeTheme;
   final void Function(int value) changeColor;
-  final ColorSelection colorSelected;
 
   @override
   State<Home> createState() => _HomeState();
@@ -58,8 +61,6 @@ class _HomeState extends State<Home> {
     // TODO: Define pages
     final pages = [
       // TODO: Replace with Category Card
-      // Container(color: Colors.amberAccent),
-      // 1
       ExplorePage(
         cartManager: widget.cartManager,
         orderManager: widget.ordersManager,
@@ -71,23 +72,12 @@ class _HomeState extends State<Home> {
           child: PostCard(post: posts[0]),
         ),
       ),
-      // 1
-      // Center(
-      //   //2
-      //   child: ConstrainedBox(
-      //     constraints: const BoxConstraints(maxWidth: 400),
-      //     // 3
-      //     child: PlaceLandscapeCard(
-      //       place: places[0],
-      //     ),
-      //   ),
-      // ),
-      Container(color: Colors.blueGrey)
+      // Container(color: Colors.blueGrey)
     ];
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 4.0,
+        elevation: 0.0,
         backgroundColor: Theme.of(context).colorScheme.surface,
         actions: [
           ThemeButton(
@@ -104,30 +94,15 @@ class _HomeState extends State<Home> {
         index: tab,
         children: pages,
       ),
-      // Old body code
-      // body: Padding(
-      //   padding: const EdgeInsets.all(16.0),
-      //   child: Column(
-      //     children: [
-      //       Text(
-      //         'You love black metal?',
-      //         style: Theme.of(context).textTheme.headlineSmall,
-      //       ),
-      //       const SizedBox(width: 100, height: 100, child: Placeholder()),
-      //     ],
-      //   ),
-      // ),
-      // 1
       bottomNavigationBar: NavigationBar(
-        // 2
+        // selectedIndex: widget.tab, для go_router (не работает!)
         selectedIndex: tab,
-        // 3
         onDestinationSelected: (index) {
+          // context.go('/$index'); для go_router (не работает!)
           setState(() {
             tab = index;
           });
         },
-        // 4
         destinations: appBarDestinations,
       ),
     );

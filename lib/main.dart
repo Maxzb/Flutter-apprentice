@@ -31,7 +31,7 @@ class _YummyState extends State<Yummy> {
 
   late final _router = GoRouter(
     initialLocation: '/login',
-    // TODO: Add App Redirect
+    redirect: _appRedirect,
     routes: [
       GoRoute(
           path: '/login',
@@ -53,7 +53,6 @@ class _YummyState extends State<Yummy> {
                 colorSelected: colorSelected,
                 tab: int.tryParse(state.pathParameters['tab'] ?? '') ?? 0);
           },
-          // 10
           routes: [
             // TODO: Add Restaurant Route
           ]),
